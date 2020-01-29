@@ -2,6 +2,7 @@ import os
 import shutil
 
 
+
 class Workspace:
     def __init__(self, paths, verbose=0):
         self.paths = paths
@@ -63,7 +64,6 @@ class Workspace:
 
 if __name__ == '__main__':
     ws = Workspace(paths=['folder_A','folder_A/subfolder','folder_B','folder_C'], verbose=2)
-
 
     input('Press any key to clear workspace...')
     ws.clear()
