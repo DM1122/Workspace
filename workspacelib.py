@@ -42,12 +42,11 @@ class Workspace:
             print('[workspace]: Path "{}" already exists'.format(path)) if self.verbose>=1 else False
 
 
-    def getOpen(self, file_name, file_ext, output_path):
+    @staticmethod
+    def getOpen(file_name, file_ext, output_path):
         '''
         Returns next available path name. Useful for batch data exports.
         '''
-
-        self.new(path=output_path)
 
         base = output_path + '/' + file_name + '_'
 
