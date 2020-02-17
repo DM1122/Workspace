@@ -18,6 +18,23 @@ class Workspace:
                 print('[workspace]: Path "{}" already exists'.format(path)) if self.verbose>=2 else False
 
 
+    def reset(self):
+        '''
+        Deletes contents of workspace folders.
+        '''
+
+        print('[workspace]: Resetting workspace') if self.verbose>=1 else False
+
+        for path in self.paths:
+            try:
+                shutil.rmtree(path)
+                os.mkdir(path)
+                print('[workspace]: Reset "{}"'.format(path)) if self.verbose>=2 else False
+            except:
+                print('[workspace]: Unable to reset "{}"'.format(path)) if self.verbose>=2 else False
+
+
+
     def clear(self):
         '''
         Clears workspace folders.
