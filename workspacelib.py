@@ -20,7 +20,7 @@ class Workspace:
 
     def reset(self):
         '''
-        Deletes contents of workspace folders.
+        Resets contents of workspace folders.
         '''
 
         print('[workspace]: Resetting workspace') if self.verbose>=1 else False
@@ -28,10 +28,11 @@ class Workspace:
         for path in self.paths:
             try:
                 shutil.rmtree(path)
-                os.mkdir(path)
                 print('[workspace]: Reset "{}"'.format(path)) if self.verbose>=2 else False
             except:
                 print('[workspace]: Unable to reset "{}"'.format(path)) if self.verbose>=2 else False
+            
+            os.mkdir(path)
 
 
 
@@ -60,7 +61,7 @@ class Workspace:
 
 
     @staticmethod
-    def getOpen(file_name, file_ext, output_path):
+    def getOpen(file_name, output_path, file_ext=''):
         '''
         Returns next available path name. Useful for batch data exports.
         '''
